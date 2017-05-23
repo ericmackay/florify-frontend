@@ -1,7 +1,6 @@
 /* Grid system! */
 .row {
-    max-width: 1000px;
-    margin: 0 auto;
+    width: 100vw;
     display: flex; /* This will allow our row to display columns horizontally */
     flex-wrap: wrap; /* This will become necessary to allow our flex boxes to stack in responsive mode */
 }
