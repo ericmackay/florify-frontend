@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './CreatePlant.css';
 import api from '../../api';
-import './DeletePlant.css';
 import FontAwesome from 'react-fontawesome';
 
 const ENTER = 13

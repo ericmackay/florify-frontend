@@ -29,7 +29,7 @@
 
 .DetailedPlantPage-info {
   float: left;
-  width: 40%;
+  width: 20%;
   padding-bottom: 5%;
 }
 
@@ -66,13 +66,13 @@
 
 .DetailedPlantPage-info p {
   float:right;
-  font-size: 2vh;
+  font-size: 3vh;
   margin: 0;
 }
 
 .DetailedPlantPage-chart {
   float: right;
-  width: 60%;
+  width: 80%;
 }
 
 .hum-icon, .temp-icon, .lux-icon, .fertility-icon {
@@ -95,44 +95,44 @@
   margin-left: 10%;
   padding-top: 10px;
   padding-bottom: 10px;
-  border-bottom: 1px solid #1F3E18;
+  border-bottom: 1px solid rgba(0, 178, 139, 1);
   float: left;
   width: 80%;
-	color: rgba(105, 142, 128, 1);
-  background-color: rgba(105, 142, 128, 0.3);
+	color: rgba(0, 178, 139, 1);
+  background-color: rgba(0, 178, 139, 0.1);
 
 }
 .DetailedPlantPage-info-temp-toggled {
   margin-left: 10%;
   padding-top: 10px;
   padding-bottom: 10px;
-  border-bottom: 1px solid #1F3E18;
+  border-bottom: 1px solid rgba(17, 35, 120, 1);
   float: left;
   width: 80%;
-	color: rgba(19, 46, 61, 1);
-  background-color: rgba(19, 46, 61, 0.3);
+	color: rgba(17, 35, 120, 1);
+  background-color: rgba(17, 35, 120, 0.1);
 
 }
 .DetailedPlantPage-info-lux-toggled {
   margin-left: 10%;
   padding-top: 10px;
   padding-bottom: 10px;
-  border-bottom: 1px solid #1F3E18;
+  border-bottom: 1px solid rgba(255, 209, 1, 1);
   float: left;
   width: 80%;
-	color: rgba(166, 113, 15, 1);
-  background-color: rgba(166, 113, 15, 0.3);
+	color: rgba(255, 209, 1, 1);
+  background-color: rgba(255, 209, 1, 0.1);
 
 }
 .DetailedPlantPage-info-ph-toggled {
   margin-left: 10%;
   padding-top: 10px;
   padding-bottom: 10px;
-  border-bottom: 1px solid #1F3E18;
+  border-bottom: 1px solid rgba(229, 112, 102, 1);
   float: left;
   width: 80%;
-	color: rgba(39, 74, 35, 1);
-  background-color: rgba(39, 74, 35, 0.3);
+	color: rgba(229, 112, 102, 1);
+  background-color: rgba(229, 112, 102, 0.1);
 
 }
 button {
@@ -148,7 +148,7 @@ button {
 .spinner > div {
   width: 18px;
   height: 18px;
-  background-color: #333;
+  background-color: rgba(229, 112, 102, 1);
 
   border-radius: 100%;
   display: inline-block;

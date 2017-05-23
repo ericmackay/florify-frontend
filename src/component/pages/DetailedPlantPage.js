@@ -12,7 +12,6 @@ export default class DetailedPlantPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      period: 'day',
       [util.HUMIDITY]: false,
       [util.TEMPERATURE]: false,
       [util.LUX]: false,
@@ -38,14 +37,14 @@ export default class DetailedPlantPage extends Component {
 
     // setState with the result of this process     SHOULD LOOK SOMETHING LIKE::
 
-    this._fetchPlantCard()
+    this._fetchPlantCard('day')
 
   }
 
-  _fetchPlantCard = () => {
-      api.getPlantDetail(this.props.params.id, this.state.period)
+  _fetchPlantCard = (period) => {
+      this.setState({loading: true})
+      api.getPlantDetail(this.props.params.id, period)
       .then(res => {
-        console.log(res.body)
         let datum = res.body
         // left hand side stuff
         let nickname = (res.body.plant.nickname)
@@ -91,37 +90,16 @@ export default class DetailedPlantPage extends Component {
   }
 
   _toggleDataSet = (type) => {
-    if (type === (util.HUMIDITY)) {
       this.setState({
-        [type]: !this.state[type],
-        humCondition: !this.state.humCondition
+        [type]: !this.state[type]
       })
     }
 
-    if (type === (util.TEMPERATURE)) {
-      this.setState({
-        [type]: !this.state[type],
-        tempCondition: !this.state.tempCondition
-      })
-    }
-
-    if (type === util.LUX) {
-      this.setState({
-        [type]: !this.state[type],
-        luxCondition: !this.state.luxCondition
-      })
-    }
-
-    if (type === (util.FERTILITY)) {
-      this.setState({
-        [type]: !this.state[type],
-        phCondition: !this.state.phCondition
-      })
-      console.log(this.state.phCondition)
-    }
+    _toggleDataDataSet = (period) => {
+        this._fetchPlantCard(period)
+      console.log(period)
 
     }
-
 
   // _chartDataGenerator = () =>
 
@@ -134,60 +112,58 @@ export default class DetailedPlantPage extends Component {
     let chartStuff = this._getDataAndOptions()
 
 
-
     return(
       <div className='DetailedPlantPage'>
-        <div className='DetailedPlantPage-content'>
-          <div className='row'>
-            <div className='DetailedPlantPage-info col-large-5 col-medium-6 col-small-12'>
-              <h1>{ nickname }</h1>
-              <h4>{ name } </h4>
-              <h4>{ description }</h4>
-              <div className={ this.state[util.HUMIDITY] ? "DetailedPlantPage-info-hum-toggled" : "DetailedPlantPage-info-box" }
-                onClick={ () => {this._toggleDataSet(util.HUMIDITY)} }>
-                <FontAwesome className='hum-icon' name='tint' size='3x' style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}/>
-                <p>{ currentHum } %</p>
-            </div>
-              <div
-                className={ this.state[util.TEMPERATURE] ? "DetailedPlantPage-info-temp-toggled" : "DetailedPlantPage-info-box" }
-                  onClick={ () => this._toggleDataSet(util.TEMPERATURE)}>
-                  <FontAwesome className='temp-icon' name='thermometer-three-quarters' size='3x' style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}/>
-                  <p>{ currentTemp } &deg;C</p>
-
-            </div>
-            <div className={ this.state[util.LUX] ? "DetailedPlantPage-info-lux-toggled" : "DetailedPlantPage-info-box" }
-                onClick={ () => this._toggleDataSet(util.LUX)}>
-                <FontAwesome className='lux-icon' name='sun-o' size='3x' style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}/>
-                <p>{ currentLux }lux</p>
-            </div>
-            <div className={ this.state[util.FERTILITY] ? "DetailedPlantPage-info-ph-toggled" : "DetailedPlantPage-info-box" }
-                onClick={ () => this._toggleDataSet(util.FERTILITY)}>
-                <FontAwesome className='fertility-icon' name='flask' size='3x' style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}/>
-                <p>{ currentFertility } f* </p>
-            </div>
-          </div>
-
-            { this.state.loading &&
+        {!this.state.loading ?
+          <div className='DetailedPlantPage-content'>
+            <div className='row'>
+              <div className='DetailedPlantPage-info col-large-5 col-medium-6 col-small-12'>
+                <h1>{ nickname }</h1>
+                <h4>{ name } </h4>
+                <h4>{ description }</h4>
+                <br/>
+                <br/>
+                <div className={ this.state[util.HUMIDITY] ? "DetailedPlantPage-info-hum-toggled" : "DetailedPlantPage-info-box" }
+                  onClick={ () => {this._toggleDataSet(util.HUMIDITY)} }>
+                  <FontAwesome className='hum-icon' name='tint' size='3x' style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}/>
+                  <p>{ currentHum } %</p>
+              </div>
+                <div
+                  className={ this.state[util.TEMPERATURE] ? "DetailedPlantPage-info-temp-toggled" : "DetailedPlantPage-info-box" }
+                    onClick={ () => this._toggleDataSet(util.TEMPERATURE)}>
+                    <FontAwesome className='temp-icon' name='thermometer-three-quarters' size='3x' style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}/>
+                    <p>{ currentTemp } &deg;C</p>
+              </div>
+              <div className={ this.state[util.LUX] ? "DetailedPlantPage-info-lux-toggled" : "DetailedPlantPage-info-box" }
+                  onClick={ () => this._toggleDataSet(util.LUX)}>
+                  <FontAwesome className='lux-icon' name='sun-o' size='3x' style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}/>
+                  <p>{ currentLux } lux</p>
+              </div>
+              <div className={ this.state[util.FERTILITY] ? "DetailedPlantPage-info-ph-toggled" : "DetailedPlantPage-info-box" }
+                  onClick={ () => this._toggleDataSet(util.FERTILITY)}>
+                  <FontAwesome className='fertility-icon' name='flask' size='3x' style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}/>
+                  <p>{ currentFertility } f* </p>
+              </div>
               <div className='DetailedPlantPage-chart col-large-7 col-medium-6 col-small-12'>
-              <div className="spinner">
-                <div className="bounce1"></div>
-                <div className="bounce2"></div>
-                <div className="bounce3"></div>
+                <Chart data={ chartStuff.data } options={ chartStuff.options }/>
+              <div className='DetailedPlantPage-options'>
+                <h4 onClick={ () => this._toggleDataDataSet('day')}> DAY </h4>
+                <h4 onClick={ () => this._toggleDataDataSet('week')}> WEEK </h4>
+              </div>
               </div>
             </div>
-            }
-
-            { !this.state.loading &&
-              	<div className='DetailedPlantPage-chart col-large-7 col-medium-6 col-small-12'>
-                <Chart data={ chartStuff.data } options={ chartStuff.options }/>
-                <div className='DetailedPlantPage-options'>
-                  <h4 onClick={ () => this.setState({period: 'day'})}> DAY </h4>
-                  <h4 onClick={ () => this.setState({period: 'week'})}> WEEK </h4>
-                </div>
-            </div>
-            }
+          </div>
+        </div>
+        :
+        <div className='DetailedPlantPage-content'>
+          <div className="spinner">
+            <div className="bounce1"></div>
+            <div className="bounce2"></div>
+            <div className="bounce3"></div>
+            <h4> Fetchin' YR DATAS </h4>
+        </div>
       </div>
-    </div>
+            }
   </div>
     );
   }

@@ -4,14 +4,14 @@ export const TEMPERATURE = 'temp'
 export const LUX = 'lux'
 export const FERTILITY = 'ph'
 
-export const humidityColor1 = 'rgba(105, 142, 128, 0.3)'
-export const humidityColor2 = 'rgba(105, 142, 128, 1)'
-export const temperatureColor1 = 'rgba(19, 46, 61, 0.3)'
-export const temperatureColor2 = 'rgba(19, 46, 61, 1)'
-export const luxColor1 = 'rgba(166, 113, 15, 0.3)'
-export const luxColor2 = 'rgba(166, 113, 15, 1)'
-export const fertilityColor1 = 'rgba(39, 74, 35, 0.3)'
-export const fertilityColor2 = 'rgba(39, 74, 35, 1)'
+export const humidityColor1 = 'rgba(0, 178, 139, 0.3)'
+export const humidityColor2 = 'rgba(0, 178, 139, 1)'
+export const temperatureColor1 = 'rgba(17, 35, 120, 0.3)'
+export const temperatureColor2 = 'rgba(17, 35, 120, 1)'
+export const luxColor1 = 'rrgba(255, 209, 1, 0.3)'
+export const luxColor2 = 'rgba(255, 209, 1, 1)'
+export const fertilityColor1 = 'rgba(229, 112, 102, 0.3)'
+export const fertilityColor2 = 'rgba(229, 112, 102, 1)'
 
 const colorHashTable = {
   [HUMIDITY]: humidityColor2,
@@ -24,7 +24,7 @@ const unitHashTable = {
   [HUMIDITY]: "%",
   [TEMPERATURE]: "°C",
   [LUX]: "lx",
-  [FERTILITY]: "pH",
+  [FERTILITY]: "f*",
 }
 
 const yAxisIdHashTable = {
@@ -134,7 +134,6 @@ export function optionsFactory(typesRequestedArray, datasets) {
 
   let yAxesArray = typesRequestedArray.map((type, i) => {
     let minValue = Math.min(...datasets[i].data.filter(x=>x))
-    console.log(minValue);
     let yAxisPerculiarToType = {
       position: i % 2===0 ? 'left' : 'right',
       id: yAxisIdHashTable[type],

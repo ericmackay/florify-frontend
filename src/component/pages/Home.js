@@ -5,7 +5,6 @@ import AddPlantCard from '../elements/AddPlantCard';
 // import auth from '../../auth';
 import './Home.css';
 import CreatePlant from '../modals/CreatePlant';
-import FontAwesome from 'react-fontawesome';
 
 // This component is the INDEXROUTE "/"
 // it is responsible for fetching the plantsdata and map it to a
@@ -52,7 +51,13 @@ export default class Home extends Component {
               <img className="logo" src={require("../../media/florify_logo.png")} alt="logo"/>
               <i className="fa fa-cog fa-2x settings-icon"/>
             </div>
-            {this.state.loading ? <h1> LOADING YR SHIT </h1>: null}
+            {this.state.loading ?
+              <div className="spinner">
+                <div className="bounce1"></div>
+                <div className="bounce2"></div>
+                <div className="bounce3"></div>
+                <h4> Fetchin' YR DATAS </h4>
+            </div>: null}
             { plants && plants.map(plant => {
                 return <PlantCard
                   fetchPlants={this._fetchPlants}
@@ -60,18 +65,17 @@ export default class Home extends Component {
                   id={plant.id}
                   nickname={plant.nickname}
                   name={plant.name}
-                  currentLux={plant.latestLux.reading}
-                  currentFertility={plant.latestPh.reading}
-                  currentTemp={plant.latestTemp.reading}
-                  currentHum={plant.latestHum.reading}
+                  // currentLux={plant.latestLux.reading}
+                  // currentFertility={plant.latestPh.reading}
+                  // currentTemp={plant.latestTemp.reading}
+                  // currentHum={plant.latestHum.reading}
                 />
               }
             )}
-
-            <AddPlantCard showModal={ this._toggleCreateModal } />
+            {!this.state.loading && <AddPlantCard showModal={ this._toggleCreateModal } />}
             {this.state.showCreateModal &&
           <div className="backdrop">
-              <CreatePlant fetchPlants={this._fetchPlants} closeModal={this._toggleCreateModal}/>
+               <CreatePlant fetchPlants={this._fetchPlants} closeModal={this._toggleCreateModal}/>
           </div>
           }
           </div>

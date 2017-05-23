@@ -2,10 +2,9 @@ import React, {Component} from 'react';
 import { Link } from 'react-router';
 import './PlantCard.css';
 // import auth from '../../auth';
-import api from '../../api';
+// import api from '../../api';
 import FontAwesome from 'react-fontawesome';
 import EditPlant from '../modals/EditPlant';
-import DeletePlant from '../modals/DeletePlant';
 
 export default class PlantCard extends Component {
   constructor(props) {
@@ -15,8 +14,6 @@ export default class PlantCard extends Component {
     showEditModal: false
     }
 }
-
-
 
   _toggleEditModal = () => this.setState({showEditModal: !this.state.showEditModal})
 
