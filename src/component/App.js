@@ -13,16 +13,11 @@ class App extends Component {
     }
   }
 
-  closeMenu = () => this.setState({ isMenuOpen: false })
-  closeMenuAndLogout = () => {
-    this.closeMenu()
-    this._handleLogout()
-  }
 
   render() {
     return (
       <div className="App">
-        {/* TODO: Render the menu here... */}
+
         {this.props.children}
       </div>
     );

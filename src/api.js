@@ -51,6 +51,7 @@ class Api {
 
   // For loggedin user to delete plant card
   deletePlant = (id) => {
+    console.log(id, "Is id defined?????");
     return superagent
     .delete(`${API_HOST}/plants/${id}`)
     .set('Authorization', `token ${localStorage.token}`)

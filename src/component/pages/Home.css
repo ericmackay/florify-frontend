@@ -1,40 +1,22 @@
 .backdrop {
-  position: absolute;
+  position: fixed;
   background-color: rgba(0,0,0,0.75);
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
-  /*top: 0;*/
+  top: 0;
 }
 
+.logo {
+  width: 50px;
+
+}
 /* Large */
 .home {
-  margin: 0;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
-  width: 100vw;
-  height:100vh;
   background-color: #F8F8F8;
+  min-height: 100vh;
+  width: 100vw;
 }
 
-/* Medium screens */
-@media all and (max-width: 1366px) {
-  .home {
-    /* When on medium sized screens, we center it by evenly distributing empty space around items */
-    margin: 0;
-    justify-content: space-around;
-    flex-flow: row wrap;
-    background-color: #F8F8F8;
-  }
-}
-
-/* Small screens */
-@media all and (max-width: 400px) {
-  .home {
-    /* On small screens, we are no longer using row direction but column */
-    margin: 0;
-    flex-direction: column;
-    flex-flow: row wrap;
-    background-color: #F8F8F8;
-  }
-}

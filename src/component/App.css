@@ -23,3 +23,44 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+body *, body *:before, body *:after { box-sizing: inherit; }
+body {
+  box-sizing: border-box;
+  font-size: 12px;
+  margin: 0px;
+}
+
+a {
+  text-decoration: none !important;
+  color: inherit;
+}
+
+.App-navbar {
+  background-color: #f8f8f8;
+  color: white;
+  padding: 1.2rem;
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  height: 10%;
+}
+
+.App-navbar__title {
+  margin: 0;
+  color: white;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+.settings-icon, .menu-icon, .App-navbar__title {
+  transition: 0.5s;
+  cursor: pointer;
+  color: DarkOliveGreen;
+}
+
+.settings-icon:hover, .menu-icon:hover, .App-navbar__title:hover {
+  color: black;
+}

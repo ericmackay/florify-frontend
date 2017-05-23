@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import auth from '../../auth'
 import './SignUp.css';
+import FontAwesome from 'react-fontawesome';
 
 const ENTER = 13;
 

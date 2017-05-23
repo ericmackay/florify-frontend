@@ -12,7 +12,6 @@ export default {
   },
 
   signup(signUpObj){
-    console.log("auth.js", signUpObj);
     if(!signUpObj.email || !signUpObj.password){
       throw new Error('Please enter valid email or password')
     }

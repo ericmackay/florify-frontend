@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './CreatePlant.css';
 import api from '../../api';
+import './DeletePlant.css';
+import FontAwesome from 'react-fontawesome';
 
 const ENTER = 13
 
@@ -56,25 +58,20 @@ export default class CreatePlant extends Component {
      }
     }
 
-
-
   render(){
     return(
       <div className="create-plant-modal">
 
-          {/*closing button*/}
-          <span className="close-icon"><a hruf="/">×</a></span>
+        <h1>Create Plant Card</h1>
+        <input type="text" placeholder="Nickname" ref="nickname" onKeyUp={this._handleTyping}/><br/>
+        <input type="text" placeholder="Name" ref="name" onKeyUp={this._handleTyping}/><br/>
+        <input type="test" placeholder="Description" ref="description" onKeyUp={this._handleTyping}/><br/>
 
-          <h1>Create Plant Card</h1>
-          <input type="text" placeholder="Nickname" ref="nickname" onKeyUp={this._handleTyping}/><br/>
-          <input type="text" placeholder="Name" ref="name" onKeyUp={this._handleTyping}/><br/>
-          <input type="test" placeholder="Description" ref="description" onKeyUp={this._handleTyping}/><br/>
-
-          <div className="create__card-button">
-            <button onClick={this._submitCard}>Submit Plant</button>
-          </div>
+        <div className="create__card-button">
+            <button onClick={this._submitCard}><FontAwesome className='submitCard-icon' name='check' size='3x' style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}/></button>
+            <button onClick={this.props.closeModal}><FontAwesome className='cancel-icon' name='times' size='3x' style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}/></button>
+        </div>
       </div>
-    );
+    )
   }
-
 }

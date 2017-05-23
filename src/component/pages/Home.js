@@ -5,8 +5,7 @@ import AddPlantCard from '../elements/AddPlantCard';
 // import auth from '../../auth';
 import './Home.css';
 import CreatePlant from '../modals/CreatePlant';
-
-
+import FontAwesome from 'react-fontawesome';
 
 // This component is the INDEXROUTE "/"
 // it is responsible for fetching the plantsdata and map it to a
@@ -22,7 +21,8 @@ export default class Home extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      showCreateModal: false
+      showCreateModal: false,
+      loading: true
     }
   }
 
@@ -33,33 +33,39 @@ export default class Home extends Component {
   _fetchPlants = () => {
       api.getPlants(localStorage.token)
       .then(res => {
-          this.setState({ plants: res.body })
+          this.setState({
+            plants: res.body,
+            loading: false
+         })
       })
 
       .catch(console.error)
   }
 
   _toggleCreateModal = () => this.setState({showCreateModal: !this.state.showCreateModal})
+
   render() {
       let { plants } = this.state
       return (
           <div className="home">
-            { plants && plants.map(plant =>
-              <PlantCard
-                fetchPlants={this._fetchPlants}
-                key={plant.id}
-                id={plant.id}
-                nickname={plant.nickname}
-                name={plant.name}
-                imageurl={plant.imageurl}
-                maxtemp={plant.maxtemp}
-                mintemp={plant.mintemp}
-                maxph={plant.maxph}
-                minph={plant.minph}
-                maxlux={plant.maxlux}
-                minlux={plant.minlux}
-                updatedAt={plant.updatedAt}
-              />
+            <div className="App-navbar">
+              <img className="logo" src={require("../../media/florify_logo.png")} alt="logo"/>
+              <i className="fa fa-cog fa-2x settings-icon"/>
+            </div>
+            {this.state.loading ? <h1> LOADING YR SHIT </h1>: null}
+            { plants && plants.map(plant => {
+                return <PlantCard
+                  fetchPlants={this._fetchPlants}
+                  key={plant.id}
+                  id={plant.id}
+                  nickname={plant.nickname}
+                  name={plant.name}
+                  currentLux={plant.latestLux.reading}
+                  currentFertility={plant.latestPh.reading}
+                  currentTemp={plant.latestTemp.reading}
+                  currentHum={plant.latestHum.reading}
+                />
+              }
             )}
 
             <AddPlantCard showModal={ this._toggleCreateModal } />
@@ -68,7 +74,6 @@ export default class Home extends Component {
               <CreatePlant fetchPlants={this._fetchPlants} closeModal={this._toggleCreateModal}/>
           </div>
           }
-
           </div>
       );
   }

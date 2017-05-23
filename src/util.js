@@ -34,6 +34,13 @@ const yAxisIdHashTable = {
   [FERTILITY]: 'y-axis-ph'
 }
 
+const scaleHashTable = {
+  [HUMIDITY]: '1',
+  [TEMPERATURE]: '1',
+  [LUX]: '1000',
+  [FERTILITY]: '5'
+}
+
 
 export const dataSetFactory = (type, dataArray) => {
   if (type === HUMIDITY) {
@@ -83,11 +90,14 @@ export const dataSetFactory = (type, dataArray) => {
 }
 
 
-export function optionsFactory(typesRequestedArray) {
+export function optionsFactory(typesRequestedArray, datasets) {
 
   const baselineOptions = {
     responsive: true,
     maintainAspectRatio: false,
+    legend: {
+      display:false
+    },
     tooltips: {
       enabled: false
     },
@@ -123,19 +133,23 @@ export function optionsFactory(typesRequestedArray) {
   }
 
   let yAxesArray = typesRequestedArray.map((type, i) => {
+    let minValue = Math.min(...datasets[i].data.filter(x=>x))
     let yAxisPerculiarToType = {
-      position: i%2===0 ? 'left' : 'right',
+      position: i % 2===0 ? 'left' : 'right',
       id: yAxisIdHashTable[type],
       ticks:{
         fontColor: colorHashTable[type],
+        stepSize: scaleHashTable[type],
+        suggestedMin: minValue - minValue/10,
+        maxTicksLimit: 1,
         callback: (value) => parseFloat(value.toFixed(2))+unitHashTable[type]
       }
     }
     return Object.assign({}, yAxisBaseline, yAxisPerculiarToType)
   })
-  
+
   // console.log(yAxesArray)
-  
+
   baselineOptions.scales.yAxes = yAxesArray
 
   return baselineOptions
