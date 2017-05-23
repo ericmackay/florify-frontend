@@ -124,19 +124,19 @@ return(
           <br/>
           <br/>
 
-        <div className={ this.state[util.HUMIDITY] ? "DetailedPlantPage-toggled" : "DetailedPlantPage-info-box" }
+        <div className={ this.state[util.HUMIDITY] ? "DetailedPlantPage-hum-toggled" : "DetailedPlantPage-info-box" }
           onClick={ () => {this._toggleDataSet(util.HUMIDITY)} }>
           <FontAwesome className='hum-icon' name='tint' size='3x' style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}/>
           <p>{ currentHum } %</p>
         </div>
 
-        <div className={ this.state[util.TEMPERATURE] ? "DetailedPlantPage-toggled" : "DetailedPlantPage-info-box" }
+        <div className={ this.state[util.TEMPERATURE] ? "DetailedPlantPage-temp-toggled" : "DetailedPlantPage-info-box" }
             onClick={ () => this._toggleDataSet(util.TEMPERATURE)}>
             <FontAwesome className='temp-icon' name='thermometer-three-quarters' size='3x' style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}/>
             <p>{ currentTemp } &deg;C</p>
         </div>
 
-        <div className={ this.state[util.LUX] ? "DetailedPlantPage-toggled" : "DetailedPlantPage-info-box" }
+        <div className={ this.state[util.LUX] ? "DetailedPlantPage-lux-toggled" : "DetailedPlantPage-info-box" }
             onClick={ () => this._toggleDataSet(util.LUX)}>
             <FontAwesome className='lux-icon' name='sun-o' size='3x' style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}/>
             <p>{ currentLux } lux</p>
@@ -151,16 +151,16 @@ return(
         </div>
 
         <div className='DetailedPlantPage-chart col-large-9 col-medium-7 col-small-12'>
-          <button className="create__card-button"><a href="/"><FontAwesome className='cancel-icon' name='times' size='3x' style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}/></a></button>
+          <button className="button"><a href="/"><FontAwesome className='cancel-icon' name='times' size='3x' style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}/></a></button>
+          <div className="chart-data">
           <Chart data={ chartStuff.data } options={ chartStuff.options }/>
           <div className='DetailedPlantPage-options'>
             <h4 onClick={ () => this._toggleDataDataSet('day')}> DAY </h4>
             <h4 onClick={ () => this._toggleDataDataSet('week')}> WEEK </h4>
           </div>
         </div>
-
-
-        </div>
+      </div>
+    </div>
         :
         <div className="row">
           <div className="spinner">
