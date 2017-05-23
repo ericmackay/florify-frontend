@@ -168,7 +168,7 @@ export default class DetailedPlantPage extends Component {
             <h2> Fetchin' YR DATAS </h2>
         </div>
       </div>
-            }
+      }
   </div>
     );
   }
