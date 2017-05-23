@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Menu from './modals/Menu';
 import './App.css';
 
 // TODO: Import menu back and render it...
@@ -21,7 +20,6 @@ class App extends Component {
   }
 
   render() {
-    let {isMenuOpen} = this.state;
     return (
       <div className="App">
         {/* TODO: Render the menu here... */}

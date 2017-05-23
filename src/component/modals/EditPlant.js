@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import './EditPlant.css'
 import api from '../../api'
 
-const ENTER = 13
-
 export default class EditPlant extends Component {
   constructor(props) {
     super(props);

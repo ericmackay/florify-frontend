@@ -1,4 +1,4 @@
-const enhanceWithClickOutside = require('react-click-outside');
+import enhanceWithClickOutside from 'react-click-outside';
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 //import onClickOutside from 'react-onclickoutside';
@@ -38,4 +38,4 @@ class Menu extends Component {
 }
  // menu component
 
-module.exports = enhanceWithClickOutside(Menu);
+export default enhanceWithClickOutside(Menu);

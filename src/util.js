@@ -123,7 +123,6 @@ export function optionsFactory(typesRequestedArray) {
   }
 
   let yAxesArray = typesRequestedArray.map((type, i) => {
-    console.log(type, yAxisIdHashTable[type])
     let yAxisPerculiarToType = {
       position: i%2===0 ? 'left' : 'right',
       id: yAxisIdHashTable[type],
