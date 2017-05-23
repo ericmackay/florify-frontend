@@ -5,148 +5,104 @@
 
 .DetailedPlantPage {
   display: flex;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-Index: 10;
+  justify-content: space-between;
   background: #fff;
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4);
-  width:100%;
-  height:100%;
+  width: 100vw;
+  height: 100vh;
+  margin:0;
   border: 0;
-}
-
-.DetailedPlantPage-content {
-  background-color: #fff;
-  border-radius: 5px;
-  margin:auto; /* 15% from the top and centered */
-  padding: 5%;
-  width: 80%; /* Could be more or less, depending on screen size */
-  min-height: 60vh;
+  overflow: scroll;
 }
 
 .DetailedPlantPage-info {
-  float: left;
-  width: 20%;
-  padding-bottom: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.DetailedPlantPage-info h1, h4{
+  display: flex;
+  justify-content: center;
+  width: 80%;
+  margin: 0;
 }
 
 .DetailedPlantPage-info-box {
-  margin-left: 10%;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #1F3E18;
-  float: left;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   width: 80%;
-}
-
-.DetailedPlantPage-info-box span {
-  width: 7%;
-  /*height: 50px;*/
-}
-
-.DetailedPlantPage-info h1, h2, h3, h4, h5, h6 {
-  color: #1F3E18;
-  margin: 0;
-}
-
-.DetailedPlantPage-info h1 {
-  font-size: 4vh;
-}
-
-.DetailedPlantPage-info h3 {
-  font-size: 3vh;
-}
-
-.DetailedPlantPage-info h4 {
-  font-size: 2vh;
-}
-
-.DetailedPlantPage-info p {
-  float:right;
-  font-size: 3vh;
-  margin: 0;
+  border-bottom: 1px solid #1F3E18;
 }
 
 .DetailedPlantPage-chart {
-  float: right;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
   width: 80%;
 }
 
-.hum-icon, .temp-icon, .lux-icon, .fertility-icon {
-  margin-left: 10px;
-  float: left;
+.DetatiledPlantPage-options {
+  display:flex;
+  flex-direction: row;
+}
+.DetailedPlantPlage-options h4 {
+  margin: 0;
 }
 
-.button {
-  display: inline-block;
-	font-size: 18px;
-	color: #2f70e1;
-	padding: 10px 30px;
-	box-shadow:	0px 1px 3px 0px rgba(0, 0, 0, .3);
-  cursor: pointer;
-  -webkit-user-select: none; /* Chrome/Safari */
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* IE10+ */
-}
-.DetailedPlantPage-info-hum-toggled {
-  margin-left: 10%;
-  padding-top: 10px;
-  padding-bottom: 10px;
+/* TOGGLED DATE STATE STUFF*/
+
+.DetailedPlantPage-hum-toggled {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 80%;
   border-bottom: 1px solid rgba(0, 178, 139, 1);
-  float: left;
-  width: 80%;
-	color: rgba(0, 178, 139, 1);
-  transition: background-color 2s;
+  color: rgba(0, 178, 139, 1);
+  transition: background-color 1.5s;
   transition-timing-function: ease-out;
-  background-color: rgba(0, 178, 139, 0.1);
-
+  background-color: rgba(0, 178, 139, 0.2);
 }
-.DetailedPlantPage-info-temp-toggled {
-  margin-left: 10%;
-  padding-top: 10px;
-  padding-bottom: 10px;
+
+.DetailedPlantPage-temp-toggled {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 80%;
   border-bottom: 1px solid rgba(17, 35, 120, 1);
-  float: left;
-  width: 80%;
-	color: rgba(17, 35, 120, 1);
-  transition: background-color 2s;
+  color: rgba(17, 35, 120, 1);
+  transition: background-color 1.5s;
   transition-timing-function: ease-out;
-  background-color: rgba(17, 35, 120, 0.1);
-
+  background-color: rgba(17, 35, 120, 0.2);
 }
-.DetailedPlantPage-info-lux-toggled {
-  margin-left: 10%;
-  padding-top: 10px;
-  padding-bottom: 10px;
+
+.DetailedPlantPage-lux-toggled {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 80%;
   border-bottom: 1px solid rgba(255, 209, 1, 1);
-  float: left;
-  width: 80%;
-	color: rgba(255, 209, 1, 1);
-  transition: background-color 2s;
+  color: rgba(255, 209, 1, 1);
+  transition: background-color 1.5s;
   transition-timing-function: ease-out;
-  background-color: rgba(255, 209, 1, 0.1);
-
-
+  background-color: rgba(255, 209, 1, 0.2);
 }
-.DetailedPlantPage-info-ph-toggled {
-  margin-left: 10%;
-  padding-top: 10px;
-  padding-bottom: 10px;
+
+.DetailedPlantPage-ph-toggled {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 80%;
   border-bottom: 1px solid rgba(229, 112, 102, 1);
-  float: left;
-  width: 80%;
-	color: rgba(229, 112, 102, 1);
-  transition: background-color 2s;
+  color: rgba(229, 112, 102, 1);
+  transition: background-color 1.5s;
   transition-timing-function: ease-out;
-  background-color: rgba(229, 112, 102, 0.1);
+  background-color: rgba(229, 112, 102, 0.2);
+}
 
-}
-button {
-  margin-top: 80px;
-}
+
+
+/*LOADING SPINNER STUFF*/
 
 .spinner {
   margin: 100px auto 0;
@@ -154,11 +110,10 @@ button {
   text-align: center;
 }
 
-.spinner > div {
+.spinner>div {
   width: 18px;
   height: 18px;
   background-color: rgba(229, 112, 102, 1);
-
   border-radius: 100%;
   display: inline-block;
   -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
@@ -176,15 +131,20 @@ button {
 }
 
 @-webkit-keyframes sk-bouncedelay {
-  0%, 80%, 100% { -webkit-transform: scale(0) }
-  40% { -webkit-transform: scale(1.0) }
+  0%, 80%, 100% {
+    -webkit-transform: scale(0)
+  }
+  40% {
+    -webkit-transform: scale(1.0)
+  }
 }
 
 @keyframes sk-bouncedelay {
   0%, 80%, 100% {
     -webkit-transform: scale(0);
     transform: scale(0);
-  } 40% {
+  }
+  40% {
     -webkit-transform: scale(1.0);
     transform: scale(1.0);
   }
