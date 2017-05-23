@@ -42,6 +42,14 @@
   width: 80%;
 }
 
+.chart-data {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  width: 80%;
+}
+
+
 .DetatiledPlantPage-options {
   display:flex;
   flex-direction: row;
