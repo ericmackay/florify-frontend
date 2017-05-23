@@ -8,6 +8,7 @@
   flex-direction: column;
   justify-content: center;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+
 }
 
 .backdrop {
@@ -32,7 +33,7 @@
   display: flex;
   justify-content: space-around;
   border-bottom: 1px solid #1F3E18;
-  margin: 5px 0;
+  margin: 1vh 0;
 }
 
 .card-item-info-box span {
@@ -42,6 +43,7 @@
 }
 
 .card-item-info-box p {
+  font-size: 2vh;
   width: 100px;
 }
 

@@ -99,6 +99,8 @@
   float: left;
   width: 80%;
 	color: rgba(0, 178, 139, 1);
+  transition: background-color 2s;
+  transition-timing-function: ease-out;
   background-color: rgba(0, 178, 139, 0.1);
 
 }
@@ -110,6 +112,8 @@
   float: left;
   width: 80%;
 	color: rgba(17, 35, 120, 1);
+  transition: background-color 2s;
+  transition-timing-function: ease-out;
   background-color: rgba(17, 35, 120, 0.1);
 
 }
@@ -121,7 +125,10 @@
   float: left;
   width: 80%;
 	color: rgba(255, 209, 1, 1);
+  transition: background-color 2s;
+  transition-timing-function: ease-out;
   background-color: rgba(255, 209, 1, 0.1);
+
 
 }
 .DetailedPlantPage-info-ph-toggled {
@@ -132,6 +139,8 @@
   float: left;
   width: 80%;
 	color: rgba(229, 112, 102, 1);
+  transition: background-color 2s;
+  transition-timing-function: ease-out;
   background-color: rgba(229, 112, 102, 0.1);
 
 }

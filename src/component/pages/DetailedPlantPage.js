@@ -116,6 +116,11 @@ export default class DetailedPlantPage extends Component {
       <div className='DetailedPlantPage'>
         {!this.state.loading ?
           <div className='DetailedPlantPage-content'>
+            <div className="create__card-button">
+              <span>
+                <button><a href="/"><FontAwesome className='cancel-icon' name='times' size='3x' style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}/></a></button>
+            </span>
+          </div>
             <div className='row'>
               <div className='DetailedPlantPage-info col-large-5 col-medium-6 col-small-12'>
                 <h1>{ nickname }</h1>
@@ -160,7 +165,7 @@ export default class DetailedPlantPage extends Component {
             <div className="bounce1"></div>
             <div className="bounce2"></div>
             <div className="bounce3"></div>
-            <h4> Fetchin' YR DATAS </h4>
+            <h2> Fetchin' YR DATAS </h2>
         </div>
       </div>
             }
