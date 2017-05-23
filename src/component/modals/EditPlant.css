@@ -3,9 +3,9 @@
     background-color: rgba(240,240,240,1);
     width: 80%;
     background: white;
-    padding: 20% 0;
+    padding: 8% 0;
     z-index:1;
-    /*position: absolute;*/
+
 }
 
 /*Add Animation */
@@ -26,24 +26,26 @@
     to {transform: scale(1)}
 }
 
-.check-icon {
 
+
+.backdrop {
+    position: fixed;
+    background-color: rgba(0,0,0,0.75);
+    min-height: 100vh;
+    width: 100vw;
+    top: 0;
 }
 
-/* The Close Button */
-.close-icon {
-    position: absolute;
-    top: 15px;
-    right: 35px;
-    color: #f1f1f1;
-    font-size: 40px;
-    font-weight: bold;
-    transition: 0.3s;
+.delete-modal {
+    margin: 10%;
+    background-color: rgba(240,240,240,1);
+    width: 80%;
+    background: white;
+    padding: 20% 0;
 }
 
-.close-icon:hover,
-.close-icon:focus {
-    color: #bbb;
-    text-decoration: none;
-    cursor: pointer;
+button {
+    border: none;
+    background: none;
+    color: #1F3E18;
 }

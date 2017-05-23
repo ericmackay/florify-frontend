@@ -37,7 +37,6 @@
 
 .card-item-info-box span {
   width: 50px;
-  height: 50px;
   margin-left: 0;
 }
 
@@ -51,4 +50,8 @@
 
 .plant-edit-button {
   margin: 5px;
+  border: none;
+  background: none;
+  color: #1F3E18;
 }
+
