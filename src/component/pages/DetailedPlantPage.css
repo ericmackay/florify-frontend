@@ -2,16 +2,31 @@
   font-family: ‘Roboto’, sans-serif;
   src: url('https://fonts.googleapis.com/css?family=Roboto')
 }
-
-.DetailedPlantPage {
+.headerbar {
   display: flex;
-  justify-content: space-between;
-  background: #fff;
+  flex-direction: row;
+  justify-content: flex-end;
+  width:100%
+}
+.DetailedPlantPage {
+  position: fixed;
+  background-color: rgba(248, 248, 248, 0.75);
+  min-height: 100vh;
   width: 100vw;
-  height: 100vh;
-  margin:0;
-  border: 0;
-  overflow: scroll;
+  top: 0;
+  left: 0;
+}
+
+.DetailedPlantPage-App {
+  display: flex;
+  background: #fff;
+  margin: 5% 10% 0 10%;
+  padding: 1% 1% 1% 1%;
+  width: 80%;
+  border-radius: 4px;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 .DetailedPlantPage-info {
@@ -20,11 +35,33 @@
   align-items: center;
 }
 
-.DetailedPlantPage-info h1, h4{
+.DetailedPlantPage-info h1, h3, h4{
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   width: 80%;
   margin: 0;
+}
+
+.DetailedPlantPage-info h1{
+  font-size: 5vh;
+}
+
+.DataDay, .DataWeek {
+  font-weight: 500;
+  padding: 1% 0 1% 0;
+}
+.DataDay-toggled, .DataWeek-toggled {
+  font-weight: 500;
+  padding: 1% 0 1% 0;
+  color: rgba(0, 178, 139, 1);
+}
+
+.DataWeek:hover{
+  color: rgba(0, 178, 139, 1);
+}
+
+.DataDay:hover{
+  color: rgba(0, 178, 139, 1);
 }
 
 .DetailedPlantPage-info-box {
@@ -32,7 +69,18 @@
   flex-direction: row;
   justify-content: space-between;
   width: 80%;
+  margin-top: 10px;
+  padding: 0 2% 0 2%;
   border-bottom: 1px solid #1F3E18;
+}
+.DetailedPlantPage-info-box:hover {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 80%;
+  padding: 0 2% 0 2%;
+  border-bottom: 1px solid #1F3E18;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1), 0 3px 3px rgba(0, 0, 0, 0.16);
 }
 
 .DetailedPlantPage-chart {
@@ -53,23 +101,38 @@
 .DetatiledPlantPage-options {
   display:flex;
   flex-direction: row;
+  justify-content: center;
+  flex: 1;
 }
-.DetailedPlantPlage-options h4 {
-  margin: 0;
+.DetatiledPlantPage-options h4{
+
+  Font-weight: 400;
+  padding: 1% 0 1% 0;
+}
+
+.cancel-icon:hover{
+  color: rgba(229, 112, 102, 1);
 }
 
 /* TOGGLED DATE STATE STUFF*/
 
+.DetailedPlantPage-hum-toggled:hover, .DetailedPlantPage-lux-toggled:hover ,
+.DetailedPlantPage-ph-toggled:hover, .DetailedPlantPage-temp-toggled:hover {
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1), 0 3px 3px rgba(0, 0, 0, 0.16);
+}
 .DetailedPlantPage-hum-toggled {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 80%;
-  border-bottom: 1px solid rgba(0, 178, 139, 1);
-  color: rgba(0, 178, 139, 1);
+  margin-top: 10px;
+  padding: 0 2% 0 2%;
+  border-bottom: 1px solid rgba(17, 35, 120, 1);
+  color: rgba(17, 35, 120, 1);
   transition: background-color 1.5s;
   transition-timing-function: ease-out;
-  background-color: rgba(0, 178, 139, 0.2);
+  background-color: rgba(17, 35, 120, 0.2);
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1), 0 3px 3px rgba(0, 0, 0, 0.16);
 }
 
 .DetailedPlantPage-temp-toggled {
@@ -77,11 +140,14 @@
   flex-direction: row;
   justify-content: space-between;
   width: 80%;
-  border-bottom: 1px solid rgba(17, 35, 120, 1);
-  color: rgba(17, 35, 120, 1);
+  margin-top: 10px;
+  padding: 0 2% 0 2%;
+  border-bottom: 1px solid rgba(229, 112, 102, 1);
+  color: rgba(229, 112, 102, 1);
   transition: background-color 1.5s;
   transition-timing-function: ease-out;
-  background-color: rgba(17, 35, 120, 0.2);
+  background-color: rgba(229, 112, 102, 0.2);
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1), 0 3px 3px rgba(0, 0, 0, 0.16);
 }
 
 .DetailedPlantPage-lux-toggled {
@@ -89,11 +155,14 @@
   flex-direction: row;
   justify-content: space-between;
   width: 80%;
+  margin-top: 10px;
+  padding: 0 2% 0 2%;
   border-bottom: 1px solid rgba(255, 209, 1, 1);
   color: rgba(255, 209, 1, 1);
   transition: background-color 1.5s;
   transition-timing-function: ease-out;
   background-color: rgba(255, 209, 1, 0.2);
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1), 0 3px 3px rgba(0, 0, 0, 0.16);
 }
 
 .DetailedPlantPage-ph-toggled {
@@ -101,14 +170,15 @@
   flex-direction: row;
   justify-content: space-between;
   width: 80%;
-  border-bottom: 1px solid rgba(229, 112, 102, 1);
-  color: rgba(229, 112, 102, 1);
+  margin-top: 10px;
+  padding: 0 2% 0 2%;
+  border-bottom: 1px solid rgba(0, 178, 139, 1);
+  color: rgba(0, 178, 139, 1);
   transition: background-color 1.5s;
   transition-timing-function: ease-out;
-  background-color: rgba(229, 112, 102, 0.2);
+  background-color: rgba(0, 178, 139, 0.2);
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1), 0 3px 3px rgba(0, 0, 0, 0.16);
 }
-
-
 
 /*LOADING SPINNER STUFF*/
 

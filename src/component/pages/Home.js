@@ -56,7 +56,7 @@ export default class Home extends Component {
                 <div className="bounce1"></div>
                 <div className="bounce2"></div>
                 <div className="bounce3"></div>
-                <h4> Fetchin' YR DATAS </h4>
+                <h2> Fetching Plant Data </h2>
             </div>: null}
             { plants && plants.map(plant => {
                 return <PlantCard

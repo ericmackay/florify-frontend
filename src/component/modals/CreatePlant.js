@@ -60,15 +60,16 @@ export default class CreatePlant extends Component {
   render(){
     return(
       <div className="create-plant-modal">
+        <div className="create-plant-modal-content">
+          <h1>New Plant</h1>
+          <input type="text" placeholder="Nickname" ref="nickname" onKeyUp={this._handleTyping}/><br/>
+          <input type="text" placeholder="Plant Type" ref="name" onKeyUp={this._handleTyping}/><br/>
+          <input type="test" placeholder="Description" ref="description" onKeyUp={this._handleTyping}/><br/>
 
-        <h1>Create Plant Card</h1>
-        <input type="text" placeholder="Nickname" ref="nickname" onKeyUp={this._handleTyping}/><br/>
-        <input type="text" placeholder="Name" ref="name" onKeyUp={this._handleTyping}/><br/>
-        <input type="test" placeholder="Description" ref="description" onKeyUp={this._handleTyping}/><br/>
-
-        <div className="create__card-button">
-            <button onClick={this._submitCard}><FontAwesome className='submitCard-icon' name='check' size='3x' style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}/></button>
-            <button onClick={this.props.closeModal}><FontAwesome className='cancel-icon' name='times' size='3x' style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}/></button>
+          <div className="create-plant-modal-buttons">
+              <button onClick={this._submitCard}><FontAwesome className='submit-icon' name='check' size='3x' style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}/></button>
+              <button onClick={this.props.closeModal}><FontAwesome className='cancel-icon' name='times' size='3x' style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}/></button>
+          </div>
         </div>
       </div>
     )
