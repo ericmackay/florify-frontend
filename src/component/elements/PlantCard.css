@@ -55,3 +55,10 @@
   background: none;
   color: #1F3E18;
 }
+
+.plant-edit-button:hover {
+  margin: 5px;
+  border: none;
+  background: none;
+  color: rgba(0, 178, 139, 1);
+}

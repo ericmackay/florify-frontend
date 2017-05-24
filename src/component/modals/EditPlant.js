@@ -77,36 +77,42 @@ render(){
     <div className="edit-plant-modal-wrapper">
       {!this.state.showDeleteModal ?
          <div className="edit-plant-modal">
-            <h1>Update Plant Details</h1>
-            <input type="text" placeholder="Nicename" value={this.state.nickname}
-                onChange={({target})=>this.setState({nickname:target.value})}/>
-            <br/>
-              <input type="text" placeholder="Name" value={this.state.name}
-                     onChange={({target})=>this.setState({name:target.value})}/>
+           <div className="edit-plant-modal-content">
+              <h1>Update Plant Details</h1>
+              <input type="text" placeholder="Nicename" value={this.state.nickname}
+                  onChange={({target})=>this.setState({nickname:target.value})}/>
               <br/>
-              <input type="test" placeholder="Description" value={this.state.description}
-                onChange={({target})=>this.setState({description:target.value})}/>
-            <br/>
-              <div className="create__card-button">
-              <input type="test" placeholder="Maxhum" value={this.state.maxhum}
-                onChange={({target})=>this.setState({maxhum:target.value})}/>
-            <br/>
-            </div>
-              <input type="test" placeholder="Minhum" value={this.state.minhum}
-                onChange={({target})=>this.setState({minhum:target.value})}/>
-              <div className="create__card-button">
-                <span>
-                  <button onClick={this._submitCard}><a href="/"><FontAwesome className='submitCard-icon' name='check' size='3x' style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}/></a></button>
-                  <button onClick={this._toggleDeleteModal}><FontAwesome className='delete-icon' name='trash' size='3x' style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}/></button>
-                  <button className="cancel-edit-button" onClick={this.props.closeModal}><FontAwesome className='cancel-icon' name='times' size='3x' style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}/></button>
-                </span>
+                <input type="text" placeholder="Name" value={this.state.name}
+                       onChange={({target})=>this.setState({name:target.value})}/>
+                <br/>
+                <input type="test" placeholder="Description" value={this.state.description}
+                  onChange={({target})=>this.setState({description:target.value})}/>
+              <br/>
+                <div className="create__card-button">
+                <input type="test" placeholder="Maxhum" value={this.state.maxhum}
+                  onChange={({target})=>this.setState({maxhum:target.value})}/>
+              <br/>
+              </div>
+                <input type="test" placeholder="Minhum" value={this.state.minhum}
+                  onChange={({target})=>this.setState({minhum:target.value})}/>
+                <div className="create__card-button">
+                  <span>
+                    <button onClick={this._submitCard}><a href="/"><FontAwesome className='submit-icon' name='check' size='3x' style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}/></a></button>
+                    <button onClick={this._toggleDeleteModal}><FontAwesome className='delete-icon' name='trash' size='3x' style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}/></button>
+                    <button className="cancel-edit-button" onClick={this.props.closeModal}><FontAwesome className='cancel-icon' name='times' size='3x' style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}/></button>
+                  </span>
+              </div>
             </div>
           </div>
           :
           <div className="edit-plant-modal">
-              <h3>Are you sure?</h3>
-              <button className="confirm-delete-button" onClick={this._handleDelete}><FontAwesome className='Yes-icon' name='check' size='3x' style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}/></button>
-              <button className="cancel-delete-button" onClick={this.props.closeModal}><FontAwesome className='cancel-icon' name='times' size='3x' style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}/></button>
+            <div className="delete-plant-modal-content">
+              <h3>Are you sure you want to delete?</h3>
+              <div className="delete-plant-modal-button">
+                <button className="confirm-delete-button" onClick={this._handleDelete}><FontAwesome className='submit-icon' name='check' size='3x' style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}/></button>
+                <button className="cancel-delete-button" onClick={this.props.closeModal}><FontAwesome className='cancel-icon' name='times' size='3x' style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}/></button>
+              </div>
+            </div>
           </div>
         }
       </div>

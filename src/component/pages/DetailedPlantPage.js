@@ -24,7 +24,7 @@ export default class DetailedPlantPage extends Component {
       currentTemp: '',
       currentLux: '',
       currentFertility: '',
-      loading: true
+      loading: true,
     };
   }
 
@@ -85,6 +85,7 @@ export default class DetailedPlantPage extends Component {
           currentLux: Math.round(currentLux),
           currentFertility: Math.round(currentFertility),
           loading: false,
+          period: period
         })
       })
       .catch(console.error)
@@ -98,7 +99,6 @@ export default class DetailedPlantPage extends Component {
 
     _toggleDataDataSet = (period) => {
         this._fetchPlantCard(period)
-      console.log(period)
 
   }
 
@@ -116,10 +116,12 @@ export default class DetailedPlantPage extends Component {
 return(
   <div className='DetailedPlantPage'>
     {!this.state.loading ?
+      <div className='DetailedPlantPage-App'>
       <div className='row'>
-        <div className='DetailedPlantPage-info col-large-3 col-medium-5 col-small-12'>
+        <div className='headerbar'> <button className="cancel-icon"> <a href="/"> <FontAwesome className='cancel-icon' name='times' size='3x' style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}/> </a> </button> </div>
+        <div className='DetailedPlantPage-info col-large-3 col-medium-4 col-small-12'>
           <h1>{ nickname }</h1>
-          <h4>{ name } </h4>
+          <h4><i>{ name }</i> </h4>
           <h4>{ description }</h4>
           <br/>
           <br/>
@@ -150,24 +152,27 @@ return(
 
         </div>
 
-        <div className='DetailedPlantPage-chart col-large-9 col-medium-7 col-small-12'>
-          <button className="button"><a href="/"><FontAwesome className='cancel-icon' name='times' size='3x' style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}/></a></button>
+        <div className='DetailedPlantPage-chart col-large-9 col-medium-8 col-small-12'>
           <div className="chart-data">
           <Chart data={ chartStuff.data } options={ chartStuff.options }/>
-          <div className='DetailedPlantPage-options'>
-            <h4 onClick={ () => this._toggleDataDataSet('day')}> DAY </h4>
-            <h4 onClick={ () => this._toggleDataDataSet('week')}> WEEK </h4>
           </div>
-        </div>
+          <div className='DetailedPlantPage-options'>
+            <h3>Data Options:</h3>
+            <h4 className={this.state.period === 'day' ? 'DataDay-toggled' : 'DataDay' }onClick={ () => this._toggleDataDataSet('day') }> DAY </h4>
+            <h4 className={this.state.period === 'week' ? 'DataWeek-toggled' : 'DataWeek' } onClick={ () => this._toggleDataDataSet('week')}> WEEK </h4>
+          </div>
       </div>
     </div>
+  </div>
         :
-        <div className="row">
-          <div className="spinner">
-            <div className="bounce1"></div>
-            <div className="bounce2"></div>
-            <div className="bounce3"></div>
-            <h2> Fetchin' YR DATAS </h2>
+        <div className="DetailedPlantPage">
+          <div className="row">
+            <div className="spinner">
+              <div className="bounce1"></div>
+              <div className="bounce2"></div>
+              <div className="bounce3"></div>
+              <h2> Fetching Plant Data </h2>
+          </div>
         </div>
       </div>
       }
