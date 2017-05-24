@@ -53,7 +53,7 @@ export default class CreatePlant extends Component {
        this.setState({error: null})
     }
     if(e.keyCode === ENTER){
-       this._submitCard(event);
+       this._submitCard(e);
      }
     }
 

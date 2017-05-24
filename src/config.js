@@ -1,3 +1,1 @@
-module.exports = {
-  API_HOST: "https://florify-api.herokuapp.com",
-}
+export const API_HOST = process.env.REACT_APP_API_HOST

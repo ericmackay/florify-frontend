@@ -1,6 +1,6 @@
 import api from './api';
 
-module.exports = {
+export default {
   login(email, pass){
     if(localStorage.token){
       throw new Error('Already logged in')

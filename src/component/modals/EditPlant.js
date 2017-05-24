@@ -3,8 +3,6 @@ import './EditPlant.css';
 import api from '../../api';
 import FontAwesome from 'react-fontawesome';
 
-const ENTER = 13
-
 export default class EditPlant extends Component {
   constructor(props) {
     super(props);
